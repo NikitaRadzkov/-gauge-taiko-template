@@ -5,10 +5,11 @@
     "tsc:check": "npx tsc --project ./tsconfig.json --noEmit",
     "tsc:watch": "npm run tsc:check -- --watch",
     "lint:run": "eslint \"./**\" --max-warnings=0",
-    "lint:fix": "eslint \"./**\" --fix --max-warnings=0"
+    "lint:fix": "eslint \"./**\" --fix --max-warnings=0",
+    "test": "gauge run specs/"
   },
   "dependencies": {
-    "gauge-ts": "0.1.0",
+    "gauge-ts": "0.1.1",
     "taiko": "^1.3.4",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
