@@ -1,0 +1,17 @@
+node_modules
+dist
+*.properties
+*.spec
+*.log
+*.js
+*.json
+*.mp4
+*.png
+*.html
+*.csv
+*.xlsx
+*.md
+*.pdf
+*.txt
+*.docx
+*.meta
