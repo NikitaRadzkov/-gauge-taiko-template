@@ -1,9 +1,11 @@
 node_modules
 dist
+reports
+logs
+Dockerfile
 *.properties
 *.spec
 *.log
-*.js
 *.json
 *.mp4
 *.png

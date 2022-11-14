@@ -13,6 +13,13 @@
   ],
   "rules": {
     "semi":"error",
+    "quotes": "off",
+    "no-undef": "off",
+    "no-console": "off",
+    "class-methods-use-this": "off",
+    "no-restricted-syntax": "off",
+    "no-await-in-loop": "off",
+    "object-curly-newline": "off",
     "max-len": ["warn", { "code": 120 }],
     "prettier/prettier": ["warn"]
   }
