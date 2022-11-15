@@ -1,13 +1,17 @@
-import { write, press, click, checkBox, toLeftOf, link, text, into } from "taiko";
-import * as assert from "assert";
-import baseActions from "../actions/base-actions";
-import basePage from "../pages/base-page";
+import { write, press, click, checkBox, toLeftOf, link, text, into, goto, evaluate } from "taiko";
+import BaseActions from "../actions/base-actions";
+import BasePage from "../pages/base-page";
 import { Step, Table } from "gauge-ts";
 
 export default class ExampleTests {
+  @Step("Open todo application")
+  async openTodoApp() {
+    await goto("todo.taiko.dev");
+  }
+
   @Step("Add task <item>")
   async addTask(item: string) {
-    await write(item, into(basePage.newTodoInput));
+    await write(item, into(BasePage.newTodoInput));
     await press("Enter");
   }
 
@@ -25,19 +29,21 @@ export default class ExampleTests {
 
   @Step("Clear all tasks")
   async cleatAllTasks() {
-    baseActions.clearAllTasks();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    await evaluate(() => localStorage.clear());
   }
 
   @Step("Must not have <table>")
   async mustNotHave(table: Table) {
     for (const row of table.getTableRows()) {
-      assert.ok(!(await text(row.getCellValues()[0]).exists(0, 0)));
+      BaseActions.assertOk(!(await text(row.getCellValues()[0]).exists(0, 0)));
     }
   }
 
   @Step("Must display <message>")
   async mustDisplayMessage(message: string) {
-    assert.ok(await text(message).exists(0, 0));
+    BaseActions.assertOk(await text(message).exists(0, 0));
   }
 
   @Step("Add tasks <table>")
@@ -51,7 +57,7 @@ export default class ExampleTests {
   @Step("Must have <table>")
   async mustHaveTable(table: Table) {
     for (const row of table.getTableRows()) {
-      assert.ok(await text(row.getCellValues()[0]).exists());
+      BaseActions.assertOk(await text(row.getCellValues()[0]).exists());
     }
   }
 }

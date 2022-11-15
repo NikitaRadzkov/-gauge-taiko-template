@@ -1,10 +1,8 @@
-import { evaluate } from "taiko";
+import * as assert from "assert";
 
 class BaseActions {
-  async clearAllTasks() {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    await evaluate(() => localStorage.clear());
+  assertOk(condition: unknown) {
+    assert.ok(condition);
   }
 }
 
