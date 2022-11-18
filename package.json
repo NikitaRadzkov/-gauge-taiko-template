@@ -7,6 +7,7 @@
     "lint:run": "eslint \"./**\" --max-warnings=0",
     "lint:fix": "eslint \"./**\" --fix --max-warnings=0",
     "test": "gauge run ./specs/",
+    "test:par": "gauge run -p -n=3",
     "test:api": "gauge run --tags 'api'"
   },
   "dependencies": {
